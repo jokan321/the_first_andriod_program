@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AnimalBook</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_text">フラグメント動物図鑑</string>
+    <string name="lione_button">獅子</string>
+    <string name="hippon_button">カバ</string>
+    <string name="giraffe_button">麒麟</string>
+    <string name="next_button">次へ</string>
+</resources>
