@@ -5,3 +5,4 @@
 第七章：animalBook
 第八章：mySlidesShow
 第九章：myCountdownTimer
+第十章：myCamera
