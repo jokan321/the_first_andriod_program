@@ -7,7 +7,7 @@ android {
     compileSdk 30
 
     defaultConfig {
-        applicationId "com.example.mycountdowntimer"
+        applicationId "com.example.mycamera"
         minSdk 23
         targetSdk 30
         versionCode 1
@@ -28,9 +28,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-    }
-    buildFeatures {
-        viewBinding = true
     }
 }
 
