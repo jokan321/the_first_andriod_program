@@ -1,4 +1,4 @@
-# the_first_andriod_program
+# the_first_android_program
 金田浩明著「初めてのアンドロイドプログラミング(バージョン5)」のソース
 第五章：janken
 第六章：mySize
