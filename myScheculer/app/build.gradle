@@ -1,0 +1,77 @@
+plugins {
+    //申明安卓程序，表示这是一个应用程序模块
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'realm-android'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+//指定Android打包插件相关属性
+android {
+    //编译时SDK的版本
+    compileSdk 31
+
+    //默认设置，其可用属性是buildTypes和ProductFlavors之和
+    defaultConfig {
+        //应用ID（应用程序包名）
+        applicationId "com.example.myscheduler"
+        //支持最小SDK版本
+        minSdk 23
+        //支持SDK的标准版本
+        targetSdk 31
+        //版本号
+        versionCode 1
+        //版本名
+        versionName "1.0"
+        // Specifies the fully-qualified class name of the test instrumentation runner.表明要使用AndroidJUnitRunner进行单元测试
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // 生产与测试环境配置
+    buildTypes {
+        // 生产环境
+        release {
+            //是否对代码进行混淆
+            minifyEnabled false
+            //指定混淆的规则文件
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    //编译选项
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    //kotlin选项
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        //viewBinding配置
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    //Realm的adapter导入
+    implementation 'io.realm:android-adapters:2.1.1'
+    //Android KTX 其实就是一个 Kotlin 代码的扩展库，Google 把我们开发的时候，比较常用的一些代码块，进行封装，然后在这个基础上，提供更良好的 API，供开发者使用。
+    implementation 'androidx.core:core-ktx:1.3.2'
+    //AppCompat框架的导入
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    //Android官方为开发者提供了许多丰富的UI控件，Material 组件就是包含了这些控件的一套工具
+    implementation 'com.google.android.material:material:1.3.0'
+    //导入ConstraintLayout
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    //导入导航，导航是为单Activity多Fragment的应用设计的
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    //junit导入
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    //Google 开源了 Espresso，这是一种Android自动化测试框架，使测试人员可以在云中x86机器的多线程环境里运行测试，并解决了关于UI测试的并发问题。
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

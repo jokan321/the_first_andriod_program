@@ -1,0 +1,30 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+//这里是gradle脚本执行所需依赖，分别是对应的maven库和插件
+buildscript {
+    //配置远程仓库
+    repositories {
+        //从Android Studio3.0后新增了google()配置，可以引用google上的开源项目
+        google()
+        //maven仓库配置，jcenter()仓库因为不再接受update故不建议使用，并且此处仓库可自定义
+        mavenCentral()
+    }
+    //配置构建工具
+    dependencies {
+        //Gradle并不只是用来构建Android项目，因此此处引入相关插件来构建Android项目
+        classpath "com.android.tools.build:gradle:7.0.2"
+        //在android项目里kotlin现阶段还是寄生在jvm平台的，所有的kotlin源代码都会被编译成class文件，这个编译过程依赖kotlin-gradle-plugin插件。
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
+        //导入realm数据库，数据库版本错误可能会导致构建失败，提示找不到
+        classpath "io.realm:realm-gradle-plugin:10.7.0"
+        def nav_version = "2.3.1"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
